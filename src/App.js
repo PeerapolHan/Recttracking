@@ -46,6 +46,10 @@ function App() {
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
       drawRect(obj, ctx); 
+      // Draw text on canvas
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "white";
+      ctx.fillText("Object Count: " + obj.length, 10, 30);
     }
   };
 
