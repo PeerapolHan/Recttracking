@@ -32,7 +32,7 @@ function App() {
       const videoWidth = webcamRef.current.video.videoWidth;
       const videoHeight = webcamRef.current.video.videoHeight;
 
-      // Set video width
+      // Set video height and width
       webcamRef.current.video.width = videoWidth;
       webcamRef.current.video.height = videoHeight;
 
@@ -41,22 +41,21 @@ function App() {
       canvasRef.current.height = videoHeight;
 
       // Make Detections
-      const obj = await net.detect(video);
+      const obj = await net.detect(video)
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
-      drawRect(obj, ctx); 
+      drawRect(obj, ctx);
     }
   };
-
-  useEffect(()=>{runCoco()},[]);
+  useEffect(() => { runCoco() }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <Webcam
           ref={webcamRef}
-          muted={true} 
+          muted={true}
           style={{
             position: "absolute",
             marginLeft: "auto",
